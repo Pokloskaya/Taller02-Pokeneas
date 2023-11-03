@@ -1,23 +1,25 @@
 const express = require('express')
 const os = require("os")
-const dataBase = require('../DB/PokeneasDB.js')
+const dataBase = require('../db/PokeneasDB')
+
 
 class PokeneasController{
-    information = new dataBase()
+    
     static index(req,res){
         const viewData = {};
         viewData["docker"] = os.hostname();
         const number = Math.floor(Math.random() * 1);
-        viewData["pokenea"]=information.dataBase[number];
-        return viewData
+        viewData["pokenea"]=dataBase.database[number];
+        res.render("pokenea/index", {viewData:viewData});
     }
 
     static show(req,res){
         const viewData = {};
         viewData["docker"] = os.hostname();
         const number = Math.floor(Math.random() * 1);
-        viewData["pokenea"]=information.dataBase[number];
-        return viewData
+        viewData["pokenea"]=dataBase.database[number];
+        viewData["image"]=dataBase.database[number].image;
+        res.render("pokenea/show", {viewData:viewData});
     }
 }
 
