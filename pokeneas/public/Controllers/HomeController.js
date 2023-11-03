@@ -6,6 +6,6 @@ export class HomeConroller{
         viewData["title"]="Pokeneas, los parceros de antioquia";
         viewData["text"] = "Bienvenido a Pokeneas"
 
-        res.render();
+        res.render("home/index", {viewData:viewData});
     }
 }
