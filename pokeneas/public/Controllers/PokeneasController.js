@@ -2,9 +2,8 @@ const express = require('express')
 const os = require("os")
 const dataBase = require('../DB/PokeneasDB.js')
 
-
-export class PokeneasController{
-    information = dataBase()
+class PokeneasController{
+    information = new dataBase()
     static index(req,res){
         const viewData = {};
         viewData["docker"] = os.hostname();
@@ -21,3 +20,5 @@ export class PokeneasController{
         return viewData
     }
 }
+
+module.exports = PokeneasController;

@@ -1,6 +1,6 @@
 const express = require('express')
 
-export class HomeConroller{
+class HomeController{
     static index(req,res){
         const viewData ={};
         viewData["title"]="Pokeneas, los parceros de antioquia";
@@ -9,3 +9,5 @@ export class HomeConroller{
         res.render("home/index", {viewData:viewData});
     }
 }
+
+module.exports = HomeController;
