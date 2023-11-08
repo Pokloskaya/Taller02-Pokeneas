@@ -1,7 +1,7 @@
-const express = require('express')
-const app = express()
+const express = require('express');
+const app = express();
 const router = require("./pokeneas/src/routes/index.js"); 
-const PORT = 3000
+const PORT = 80;
 const expressEjsLayout = require('express-ejs-layouts');
 
 app.set('view engine', 'ejs');
@@ -12,7 +12,7 @@ app.set('layout', './layout/layout.ejs');
 app.use(express.json());
 app.use("/",router);
 app.listen(PORT, () => {
-    console.log(`Example app listening on port ${PORT}`)
+    console.log(`Example app listening on port ${PORT}`);
 })
 
 //export const index = (req, res) => res.send('Hello World!');
